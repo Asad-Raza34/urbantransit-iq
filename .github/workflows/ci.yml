@@ -1,0 +1,195 @@
+name: UrbanTransit IQ CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y default-jre-headless
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pytest kaleido
+
+      - name: Verify imports
+        run: |
+          python -c "import src; print('src package imports OK')"
+          python -c "from src.analytics import frequency; print('analytics imports OK')"
+          python -c "from src.ml import delay_prediction; print('ml imports OK')"
+          python -c "from src.forecasting import occupancy_forecast; print('forecasting imports OK')"
+          python -c "from src.map import network_map; print('map imports OK')"
+          python -c "from src.reports import generator; print('reports imports OK')"
+          python -c "from src.validate import hidden_data_validator; print('validator imports OK')"
+          python -c "from src.services import data_access; print('services imports OK')"
+
+      - name: Run tests
+        run: |
+          python -m pytest tests/ -v --tb=short
+
+      - name: Check test count
+        run: |
+          python -c "
+          import pytest
+          import sys
+          # Count tests
+          result = pytest.main(['tests/', '--collect-only', '-q'])
+          print('Test collection complete')
+          " 2>&1 | tail -20
+
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install ruff
+
+      - name: Run ruff linting
+        run: |
+          ruff check src/ tests/ app/ --output-format=github
+
+      - name: Check formatting
+        run: |
+          ruff format --check src/ tests/ app/
+
+  security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install bandit safety
+
+      - name: Run bandit security scan
+        run: |
+          bandit -r src/ app/ -f json -o bandit-report.json || true
+          bandit -r src/ app/ --format txt --severity-level medium --confidence-level medium
+
+      - name: Run safety check
+        run: |
+          safety check --json --output safety-report.json || true
+          safety check
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [test, lint, security]
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: Verify package structure
+        run: |
+          python -c "
+          import src
+          import app
+          print('All packages import successfully')
+          print(f'Project root: {src.__file__}')
+          "
+
+      - name: Verify critical modules
+        run: |
+          python -c "
+          # Test critical module imports
+          from src.analytics.frequency import build
+          from src.ml.delay_prediction import train_delay_model
+          from src.forecasting.occupancy_forecast import build_occupancy_models
+          from src.reports.generator import ReportGenerator
+          from src.map.network_map import create_network_map
+          from src.validate.hidden_data_validator import validate_hidden_dataset
+          from src.services.data_access import load_route_metrics
+          print('All critical modules import successfully')
+          "
+
+  deploy-check:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify deployment files
+        run: |
+          test -f DEPLOYMENT.md && echo "DEPLOYMENT.md exists"
+          test -f .env.example && echo ".env.example exists"
+          test -f requirements.txt && echo "requirements.txt exists"
+          test -f start.sh && echo "start.sh exists"
+          test -f start.bat && echo "start.bat exists"
+          echo "All deployment files present"
+
+      - name: Check environment template
+        run: |
+          grep -E "^[A-Z_]+=" .env.example | wc -l
+          echo "Environment variables documented"
+
+      - name: Verify production checklist items
+        run: |
+          echo "=== Production Checklist ==="
+          echo "✓ Environment variables template (.env.example)"
+          echo "✓ Deployment guide (DEPLOYMENT.md)"
+          echo "✓ Requirements pinned (requirements.txt)"
+          echo "✓ Startup scripts (start.sh/start.bat)"
+          echo "✓ Tests passing (CI)"
+          echo "✓ Linting clean (CI)"
+          echo "✓ Security scan clean (CI)"

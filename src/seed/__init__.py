@@ -1,0 +1,1 @@
+"""Synthetic seed data generation package."""

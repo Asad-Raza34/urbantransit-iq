@@ -1,0 +1,645 @@
+{
+  "n_clusters": 2,
+  "silhouette_score": 0.6587994994037608,
+  "silhouette_scores": [
+    0.6587994994037608,
+    0.6187673779391065,
+    0.33737245639528246,
+    0.29651593145242877,
+    0.3015486553324912,
+    0.2889106110535484,
+    0.2972444111404568,
+    0.2973637502055826,
+    0.30757445818591217
+  ],
+  "labels": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "feature_names": [
+    "passengers",
+    "avg_delay_min",
+    "on_time_share",
+    "occupancy_avg_pct",
+    "occupancy_max_pct",
+    "crowding_share",
+    "critical_crowding_share",
+    "underutilized_share",
+    "avg_headway_min",
+    "headway_cv",
+    "bunching_share",
+    "gapping_share",
+    "severe_critical_share",
+    "adherence_share",
+    "avg_boardings_per_trip",
+    "avg_actual_travel_min",
+    "route_score"
+  ],
+  "cluster_labels": {
+    "0": "Cluster 0: High Demand / Underutilized / Long Headways",
+    "1": "Cluster 1: Very High Demand / High Delays / Underutilized"
+  },
+  "profiles": [
+    {
+      "cluster_id": 0,
+      "n_routes": 66,
+      "passengers_mean": 26201.242424242424,
+      "passengers_std": 7349.022440613039,
+      "avg_delay_min_mean": 4.467121212121212,
+      "avg_delay_min_std": 0.14510224672506625,
+      "on_time_share_mean": 0.7344363636363637,
+      "on_time_share_std": 0.0178784325277791,
+      "occupancy_avg_pct_mean": 8.037878787878785,
+      "occupancy_avg_pct_std": 1.9326160151475156,
+      "occupancy_max_pct_mean": 16.004545454545454,
+      "occupancy_max_pct_std": 3.5736829448357317,
+      "crowding_share_mean": 7.878787878787879e-05,
+      "crowding_share_std": 0.00019096125383490876,
+      "underutilized_share_mean": 0.9812772727272728,
+      "underutilized_share_std": 0.02175962948959553,
+      "bunching_share_mean": 0.004813636363636365,
+      "bunching_share_std": 0.0014523070626406127,
+      "route_score_mean": 53.38939393939393,
+      "route_score_std": 0.8387039062888892,
+      "avg_boardings_per_trip_mean": 6.629393939393939,
+      "avg_boardings_per_trip_std": 0.9702178641741781,
+      "avg_headway_min_mean": 175.4318181818182,
+      "avg_headway_min_std": 23.843387466426115,
+      "avg_actual_travel_min_mean": 45.92424242424243,
+      "avg_actual_travel_min_std": 17.958216980244924,
+      "label": "Cluster 0: High Demand / Underutilized / Long Headways"
+    },
+    {
+      "cluster_id": 1,
+      "n_routes": 34,
+      "passengers_mean": 164048.08823529413,
+      "passengers_std": 7160.053514137443,
+      "avg_delay_min_mean": 5.338235294117647,
+      "avg_delay_min_std": 0.0984876730706974,
+      "on_time_share_mean": 0.5833794117647058,
+      "on_time_share_std": 0.009458098322914487,
+      "occupancy_avg_pct_mean": 20.991176470588236,
+      "occupancy_avg_pct_std": 4.158552169894304,
+      "occupancy_max_pct_mean": 37.52941176470589,
+      "occupancy_max_pct_std": 7.860893981535961,
+      "crowding_share_mean": 0.04034411764705882,
+      "crowding_share_std": 0.0504041856798257,
+      "underutilized_share_mean": 0.6748705882352942,
+      "underutilized_share_std": 0.11772376122609765,
+      "bunching_share_mean": 0.013194117647058823,
+      "bunching_share_std": 0.0012318847782775268,
+      "route_score_mean": 67.05,
+      "route_score_std": 1.4340554910864338,
+      "avg_boardings_per_trip_mean": 17.130882352941175,
+      "avg_boardings_per_trip_std": 0.7488187370060029,
+      "avg_headway_min_mean": 73.49411764705881,
+      "avg_headway_min_std": 0.340179254414036,
+      "avg_actual_travel_min_mean": 49.902941176470584,
+      "avg_actual_travel_min_std": 20.172160313000802,
+      "label": "Cluster 1: Very High Demand / High Delays / Underutilized"
+    }
+  ],
+  "centers": [
+    {
+      "passengers": 26201.242424242417,
+      "avg_delay_min": 4.467121212121212,
+      "on_time_share": 0.7344363636363637,
+      "occupancy_avg_pct": 8.037878787878787,
+      "occupancy_max_pct": 16.004545454545454,
+      "crowding_share": 7.878787878788998e-05,
+      "critical_crowding_share": 1.060606060605384e-05,
+      "underutilized_share": 0.9812772727272727,
+      "avg_headway_min": 175.4318181818182,
+      "headway_cv": 0.8407727272727273,
+      "bunching_share": 0.004813636363636364,
+      "gapping_share": 0.0027803030303030305,
+      "severe_critical_share": 0.06681515151515151,
+      "adherence_share": 0.2207318181818182,
+      "avg_boardings_per_trip": 6.62939393939394,
+      "avg_actual_travel_min": 45.92424242424242,
+      "route_score": 53.38939393939394,
+      "cluster_id": 0
+    },
+    {
+      "passengers": 164048.0882352941,
+      "avg_delay_min": 5.338235294117647,
+      "on_time_share": 0.5833794117647059,
+      "occupancy_avg_pct": 20.991176470588236,
+      "occupancy_max_pct": 37.529411764705884,
+      "crowding_share": 0.04034411764705884,
+      "critical_crowding_share": 0.021414705882352936,
+      "underutilized_share": 0.6748705882352941,
+      "avg_headway_min": 73.49411764705883,
+      "headway_cv": 1.0321764705882353,
+      "bunching_share": 0.013194117647058821,
+      "gapping_share": 0.00788529411764706,
+      "severe_critical_share": 0.0735764705882353,
+      "adherence_share": 0.12012647058823528,
+      "avg_boardings_per_trip": 17.130882352941175,
+      "avg_actual_travel_min": 49.902941176470584,
+      "route_score": 67.05,
+      "cluster_id": 1
+    }
+  ],
+  "inertia": 462.04740277586006,
+  "route_assignments": [
+    {
+      "route_id": "R-076",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-058",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-055",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-031",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-085",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-091",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-046",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-049",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-100",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-022",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-007",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-088",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-052",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-004",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-013",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-040",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-097",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-070",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-034",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-001",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-025",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-064",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-073",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-067",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-079",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-016",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-043",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-061",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-028",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-037",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-019",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-094",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-010",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-082",
+      "cluster": 1
+    },
+    {
+      "route_id": "R-069",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-090",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-009",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-012",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-039",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-066",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-084",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-015",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-042",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-093",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-063",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-033",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-054",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-021",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-045",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-099",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-078",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-027",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-051",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-006",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-087",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-077",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-060",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-072",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-036",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-003",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-024",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-083",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-018",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-075",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-059",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-081",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-044",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-092",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-096",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-030",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-057",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-071",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-008",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-048",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-047",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-098",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-050",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-095",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-029",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-032",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-056",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-062",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-038",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-017",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-023",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-026",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-035",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-089",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-053",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-011",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-086",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-041",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-014",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-068",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-002",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-080",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-074",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-020",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-065",
+      "cluster": 0
+    },
+    {
+      "route_id": "R-005",
+      "cluster": 0
+    }
+  ]
+}

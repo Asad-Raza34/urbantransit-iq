@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Environment / secrets
+.env
+.env.*
+*.key
+*.pem
+
+# Data - generated artifacts (keep the folder structure)
+data/raw/*
+data/generated/*
+data/cleaned/*
+data/processed/*
+data/metadata/*
+data/samples/*
+hdfs/raw/*
+hdfs/cleaned/*
+hdfs/processed/*
+hdfs/features/*
+hdfs/models/*
+!data/raw/.gitkeep
+!data/generated/.gitkeep
+!data/cleaned/.gitkeep
+!data/processed/.gitkeep
+!data/metadata/.gitkeep
+
+# Models are artefacts of training runs
+models/spark/*
+models/python/*
+models/versions/*
+!models/spark/.gitkeep
+!models/python/.gitkeep
+!models/versions/.gitkeep
+
+# Logs, reports, Spark work dirs
+logs/*
+reports/*
+!logs/.gitkeep
+!reports/.gitkeep
+spark-warehouse/
+metastore_db/
+derby.log
+*.log
+.checkpoint/
+
+# Spark on Windows
+hadoop/work/*
+
+# Test/debug artifacts
+test_map.html
+.freebuff/
+data/samples/
+data/analytics/tmp*.parquet
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swodata/analytics/cache/
+data/features/*.parquet
+data/analytics/cache/
+data/features/*.parquet
